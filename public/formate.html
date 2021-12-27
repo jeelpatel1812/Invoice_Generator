@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" type="text/css" href="css/style_formate.css">
+    
+    <title>Business detail</title>
+<style>
+    
+    body
+    {
+    background: rgb(238,210,174);
+    background: radial-gradient(circle, rgba(250, 249, 248, 0.981) 41%, rgba(155, 155, 152, 0.928) 100%);
+    font-family: roboto slab;
+    }
+
+    
+
+</style>
+</head>
+<body>
+    
+    <form action="/formate"  method="POST">
+        <div class='cd-box'>
+
+
+            <h2 style="text-align: center;">Company Details</h2>
+            &nbsp;Company Name <br/>
+            <input type="text" name="companyName" placeholder="Company Name" required/> <br/>
+            &nbsp;Owner Name <br/>
+            <input type="text" name="ownerName" placeholder="Owner Name" required/> <br/>
+            &nbsp;Phone Number <br/>
+            <input type="text" name="phone1" placeholder="Phone Number"  pattern="[0-9]{10}"  required/> <br/>
+            &nbsp;Address <br/>
+            <input type="text" name="companyAddress" placeholder="Address" required/> <br/>
+            &nbsp;GSTIN <br/>
+            <input type="text" name="GSTID" placeholder="GSTIN" minlength="15" maxlength="15" required/> <br/>
+    
+            <button type="submit" class="Sbtn" >Create my format</button>
+        </div>
+
+    </form>
+</body>
+</html>

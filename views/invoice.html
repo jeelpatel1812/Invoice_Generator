@@ -1,0 +1,232 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
+    
+    <link rel="stylesheet" type="text/css" href="../css/style_invoice.css">
+    <script src="../script/script_invoice.js"></script>
+    
+    <title>Invoice</title>
+
+</head>
+<body>
+    <div id="invoice-page">
+    <div class="i" id="icn">
+      
+      <div class="icon-line">
+        <img class="icons" src="../logo/edit_formate.png">
+         </div>
+      <div class="icon-line" style="padding-left: 3px;">
+        <img class="icons" src="../logo/final_invoice.png">
+         </div>
+      <div class="icon-line">
+        <img class="icons" src="../logo/pdf.png">
+          </div>
+      <div class="icon-line" >
+        <img class="icons" src="../logo/logout.jfif">
+      </div>
+    </div>
+    <div class="navigation" id="nvg">
+
+      
+        
+      
+      <form action="/editFormate" method="GET">
+        <div > <button class="nav-line" type="submit">Edit Formate</button> </div> 
+      </form>
+      <div >
+        
+        <button class="nav-line" onclick="getFinal()">
+          Get Final Invoice
+        </button>
+      </div>
+      <div >
+        
+        <button class="nav-line" onclick="generatePDF()">
+          Download as PDF
+        </button>
+      </div>
+      <form action="/logout" method="GET">
+        
+        <div > <button class="nav-line" type="submit">Logout</button> </div>  
+      </form>
+      
+      
+      
+      
+    </div>
+    <div class="invoive-container" >
+      <div id="invoice">
+      <div class="hc" style="border:2px solid black;">
+          
+          <div class="flex-container">
+              <div class="left">
+                  <h3 class="hx">{{ownerName}}</h3>  
+                  <div style="margin-top: 5px;">+91 {{contact}}</div> 
+                  <div style="margin-top: 5px;">{{email}}</div>
+                  
+              </div>
+
+              <div class="middle">
+                  <h1 class="hx">{{companyName}}</h1>
+                  <span>{{companyAddress}}</span> <br/>
+                  <div style="font-size:medium; font-weight: 800; margin-top: 16px;">GSTIN : {{gstid}}</div>
+          
+              </div>
+
+              <div class="right">
+                  <h3 class="hx">Invoice</h2>
+                  <div style="margin-top: 10px;">Date : {{Date}}</div> <br/>
+                  
+                  
+              </div>
+          </div>
+      </div>
+
+      <div class="customer-name" style="border:2px solid black; margin-top: 7px;">
+          
+          <div class="flex-container">
+              <div class="left" style="display: inline;">
+                  Customer Name : 
+              </div>
+              <div style="margin-right: 440px;"><input type="text" id="customerNameInput" placeholder="Enter Customer's Name" ></div>
+          </div>
+      </div>
+
+      <div class="item-list">
+          <table style="border: 3px solid black; margin-top: 7px;">
+              <tr>
+                
+                <th class="tindex telement">NO.</th>
+                <th class="tname telement">ITEM NAME</th>
+                <th class="tq telement">QUANTITY</th>
+                <th class="tprice telement">PRICE</th>
+                <th class="tamount telement">AMOUNT</th>
+              </tr>
+              <tr>
+                <td class="tindex telement" >1</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q1"> </td>
+                <td class="tprice telement" > <input type="number" id="p1"> </td>
+                <td class="tamount telement" > <input type="number" id="a1" > </td>
+              </tr>
+              
+              <tr>
+                <td class="tindex telement" >2</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q2"> </td>
+                <td class="tprice telement" > <input type="number" id="p2"> </td>
+                <td class="tamount telement" > <input type="number" id="a2" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >3</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q3"> </td>
+                <td class="tprice telement" > <input type="number" id="p3"> </td>
+                <td class="tamount telement" > <input type="number" id="a3" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >4</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q4"> </td>
+                <td class="tprice telement" > <input type="number" id="p4"> </td>
+                <td class="tamount telement" > <input type="number" id="a4" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >5</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q5"> </td>
+                <td class="tprice telement" > <input type="number" id="p5"> </td>
+                <td class="tamount telement" > <input type="number" id="a5" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >6</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q6"> </td>
+                <td class="tprice telement" > <input type="number" id="p6"> </td>
+                <td class="tamount telement" > <input type="number" id="a6" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >7</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q7"> </td>
+                <td class="tprice telement" > <input type="number" id="p7"> </td>
+                <td class="tamount telement" > <input type="number" id="a7" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >8</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q8"> </td>
+                <td class="tprice telement" > <input type="number" id="p8"> </td>
+                <td class="tamount telement" > <input type="number" id="a8" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >9</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q9"> </td>
+                <td class="tprice telement" > <input type="number" id="p9"> </td>
+                <td class="tamount telement" > <input type="number" id="a9" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >10</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q10"> </td>
+                <td class="tprice telement" > <input type="number" id="p10"> </td>
+                <td class="tamount telement" > <input type="number" id="a10" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >11</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q11"> </td>
+                <td class="tprice telement" > <input type="number" id="p11"> </td>
+                <td class="tamount telement" > <input type="number" id="a11" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >12</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q12"> </td>
+                <td class="tprice telement" > <input type="number" id="p12"> </td>
+                <td class="tamount telement" > <input type="number" id="a12" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >13</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q13"> </td>
+                <td class="tprice telement" > <input type="number" id="p13"> </td>
+                <td class="tamount telement" > <input type="number" id="a13" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >14</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q14"> </td>
+                <td class="tprice telement" > <input type="number" id="p14"> </td>
+                <td class="tamount telement" > <input type="number" id="a14" > </td>
+              </tr>
+              <tr>
+                <td class="tindex telement" >15</td>
+                <td class="tname telement"> <input type="text"> </td>
+                <td class="tq telement" > <input type="number" id="q15"> </td>
+                <td class="tprice telement" > <input type="number" id="p15"> </td>
+                <td class="tamount telement" > <input type="number" id="a15" > </td>
+              </tr>
+             
+            </table>
+
+            <div id="total">Total : 0</div>
+            <div id="discount">Discount : <input type="number" id="disc" value="0"> % </div>
+            <div id="gtotal">Grand Total : 0 </div>
+            <div id="greeding"> </div>
+
+      </div>
+
+      </div>
+    </div>
+    </div>
+    
+    
+</body>
+</html>
