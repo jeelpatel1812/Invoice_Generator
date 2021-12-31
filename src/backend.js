@@ -131,7 +131,7 @@ app.post("/formate",function(req,res){
         
 
         
-       //Adding new user's firm details into db
+       //Adding new user's firm details into db.
     const profile=req.oidc.user;
  
     
