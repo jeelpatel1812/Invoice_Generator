@@ -133,7 +133,7 @@ app.post("/formate",function(req,res){
         
        //adding new user's firm details into db
     const profile=req.oidc.user;
-    //   console.log("inserting...")   
+ 
     
     const fetchDocument= async() =>{
         
@@ -208,7 +208,6 @@ const invoicePath=path.join(__dirname , '../public/Invoice.html');
 app.get('/invoice',function(req,res){
 
     
-
     const profile=req.oidc.user;
 
     try {
